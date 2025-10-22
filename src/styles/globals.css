@@ -1,0 +1,215 @@
+@custom-variant dark (&:is(.dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-size: 14px;
+  --background: #FFFFFF;
+  --foreground: #343A40;
+  --card: #FFFFFF;
+  --card-foreground: #343A40;
+  --popover: #FFFFFF;
+  --popover-foreground: #343A40;
+  --primary: #343A40;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F8F9FA;
+  --secondary-foreground: #343A40;
+  --muted: #F8F9FA;
+  --muted-foreground: #6c757d;
+  --accent: #F8F9FA;
+  --accent-foreground: #343A40;
+  --destructive: #DC3545;
+  --destructive-foreground: #FFFFFF;
+  --success: #28A745;
+  --success-foreground: #FFFFFF;
+  --warning: #ffc107;
+  --warning-foreground: #343A40;
+  --info: #17a2b8;
+  --info-foreground: #FFFFFF;
+  --border: #dee2e6;
+  --input: transparent;
+  --input-background: #FFFFFF;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #343A40;
+  --chart-1: #343A40;
+  --chart-2: #28A745;
+  --chart-3: #DC3545;
+  --chart-4: #17a2b8;
+  --chart-5: #ffc107;
+  --radius: 0.375rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #343A40;
+  --sidebar-primary: #343A40;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F8F9FA;
+  --sidebar-accent-foreground: #343A40;
+  --sidebar-border: #dee2e6;
+  --sidebar-ring: #343A40;
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #000000;
+  --card-foreground: #ffffff;
+  --popover: #000000;
+  --popover-foreground: #ffffff;
+  --primary: #28A745;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #28A745;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #28A745;
+  --chart-2: #17a2b8;
+  --chart-3: #ffc107;
+  --chart-4: #fd7e14;
+  --chart-5: #6f42c1;
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #28A745;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1a1a1a;
+  --sidebar-ring: #28A745;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Animaciones personalizadas */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
